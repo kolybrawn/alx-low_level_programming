@@ -5,7 +5,7 @@
  * main - Function to assign random number to variable n
  * and print the last digit of the number stored in the variable
  *
- * Return 0 (Success)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {

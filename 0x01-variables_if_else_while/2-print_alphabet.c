@@ -3,13 +3,13 @@
 #include <time.h>
 /**
  * main - print alphabets in lower case
- * Return: 0 (Success)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
 	char c = 'a';
 
-	while (c <= 'z');
+	while(c <= 'z');
 	{
 		putchar (c);
 		c++;
