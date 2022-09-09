@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 /**
- * main - Entry point
- * 
+ * main - Function to assign random number to variable n
+ * and print last digit of number stored 
  * Return 0 (Success)
  */
 int main(void)
