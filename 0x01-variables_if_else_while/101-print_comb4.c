@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 /**
- * main - print numbers from 00 to 99.
-(*
- * Return: 0 on success
+ * main - print numbers from zero to ninety nine
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
