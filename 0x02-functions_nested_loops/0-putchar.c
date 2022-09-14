@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 /**
- * main - Prints _putchar, followed by a new line
+ * main - function to print _putchar
  *
  * Retur: Always 0 (Success)
  */
