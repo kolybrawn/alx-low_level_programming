@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 /**
- * main - function to print _putchar
+ * main - function to print _putchar followed
+ * by a new line
  *
- * Retur: Always 0 (Success)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
