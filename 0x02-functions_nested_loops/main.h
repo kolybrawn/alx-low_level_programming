@@ -5,7 +5,7 @@
  * file: main.h
  */
 
-int _putchar (char c);
+int _putchar(char c);
 void print_aplhabet(void);
 void print_alphabe_x10(void);
 int _islower(int c);
