@@ -1,12 +1,13 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * print_square - funtion that prints square followed by a newline
  * @size: sizr of both width and lenght
  * Return: A square
  */
 void print_square(int size)
-
 {
+
 	int i, j;
 
 	if (size <= 0)
