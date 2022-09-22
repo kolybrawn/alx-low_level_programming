@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * infinite_add - Adds two numbers
@@ -12,33 +11,20 @@
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	/* i = iterator for n1 and n2; j = iterator for r; n = carry over number */
-	int i, j, n;
+	int index, n1_len = 0, n2_len = 0;
 
-	i = j = n = 0;
-	/* if r[0] >= 10, set value to 1 & increase buffer size by 1*/
-	if ((n1[0] - '0') + (n2[0] - '0') >= 10)
-	{
-		r[0] = 1 + '0';
-		j = 1;
-	}
-	while (i < size_r && (n1[i] != '\0' || n2[i] != '\0' || r[j] != '\0'))
-	{
-		if ((n1[i + 1] - '0') + (n2[i + 1] - '0') >= 10)
-		n = 1;
-		else
-		n = 0;
-		r[j] = (n1[i] - '0') + (n2[i] - '0') + n;
-		r[j] = r[j] % 10 + '0';
-/*
- * printf("i: %d, n1: %d, n2: %d, j: %d, r: %d\n", i, n1[i] - '0',
- * n2[i] - '0', j, r[j]- '0'); debug
- */
-		i++;
-		j++;
-		if (n1[i] == '\0' || n2[i] == '\0')
-		r[j] = '\0';
-	}
-	r[j] = '\0';
-	return (r);
+	for (index = 0; *(n1 + index); index++)
+	n1_len++;
+
+	for (index = 0; *(n2 + index); index++)
+	n2_len++;
+
+	if (size_r <= n1_len + 1 || size_r <= n2_len + 1)
+	return (0);
+
+	n1 += n1_len - 1;
+	n2 += n2_len - 1;
+	*(r + size_r) = '\0';
+
+	return (add_strings(n1, n2, r, --size_r));
 }
