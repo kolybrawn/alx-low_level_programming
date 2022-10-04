@@ -9,7 +9,7 @@
  * Return: pointer to 2-D integer grid
  */
 
-int **alloc_grid(int width, int height}
+int **alloc_grid(int width, int height)
 {
 	int **twoD;
 	int hgt_index, wid_index;
@@ -25,7 +25,6 @@ int **alloc_grid(int width, int height}
 	for (hgt_index = 0; hgt_index < height; hgt_index++)
 	{
 		twoD[hgt_index] = malloc(sizeof(int) * width);
-	
 		if (twoD[hgt_index] == NULL)
 		{
 			for (; hgt_index >= 0; hgt_index--)
