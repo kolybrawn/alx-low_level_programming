@@ -2,35 +2,46 @@
 #include <stdlib.h>
 
 /**
- * string_nconcat - Concatenates two strings using at
- *                  most an inputted number of bytes.
- * @s1: first string.
- * @s2: second string.
- * @n: maximum number of bytes of s2 to concatenate to s1.
- * Return: If the function fails - NULL.
- *         Otherwise - a pointer to the concatenated space in memory.
+ * _realloc - Reallocates a memory block using malloc and free.
+ * @ptr: A pointer to the memory previously allocated.
+ * @old_size: The size in bytes of the allocated space for ptr.
+ * @new_size: The size in bytes for the new memory block.
+ * Return: If new_size == old_size - ptr.
+ *         If new_size == 0 and ptr is not NULL - NULL.
+ *         Otherwise - a pointer to the reallocated memory block.
  */
 
-char *string_nconcat(char *s1, char *s2, unsigned int n)
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 {
-	char *concat;
-	unsigned int len = n, index;
+	void *mem;
+	char *ptr_copy, *filler;
+	unsigned int index;
 
-	if (s1 == NULL)
-	s1 = "";
-	if (s2 == NULL)
-	s2 = "";
-	for (index = 0; s1[index]; index++)
-	len++;
-	concat = malloc(sizeof(char) * (len + 1));
-	if (concat == NULL)
-	return (NULL);
-	len = 0;
-	for (index = 0; s1[index]; index++)
-	concat[len++] = s1[index];
-	for (index = 0; s2[index] && index < n; index++)
-	concat[len++] = s2[index];
-	concat[len] = '\0';
-	return (concat);
+	if (new_size == old_size)
+	return (ptr);
+	if (ptr == NULL)
+	{
+		mem = malloc(new_size);
+		if (mem == NULL)
+		return (NULL);
+		return (mem);
+	}
+	if (new_size == 0 && ptr != NULL)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	ptr_copy = ptr;
+	mem = malloc(sizeof(*ptr_copy) * new_size);
+	if (mem == NULL)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	filler = mem;
+	for (index = 0; index < old_size && index < new_size; index++)
+	filler[index] = *ptr_copy++;
+	free(ptr);
+	return (mem);
 }
